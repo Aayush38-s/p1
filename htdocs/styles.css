@@ -1,0 +1,172 @@
+:root {
+  --bg: #ffffff;
+  --card: #ffffff;
+  --text: #1d4ed8;
+  --muted: #2563eb;
+  --brand: #1d4ed8;
+  --brand-2: #1d4ed8;
+  --error: #ef4444;
+  --border: #cbd5e1;
+}
+
+/* Reset & Base */
+* { 
+  box-sizing: border-box; 
+}
+html, body { 
+  height: 100%; 
+}
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Center Container */
+.container {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+/* Card */
+.card {
+  width: 100%;
+  max-width: 440px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(2, 6, 23, 0.06);
+  padding: 28px;
+}
+
+/* Branding */
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+#koiLogo {
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.logo-fallback { 
+  display: none; 
+}
+
+#portalTitle {
+  font-size: 18px;
+  line-height: 1.2;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+/* Fields */
+.field { 
+  margin: 14px 0; 
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px 12px;
+  color: var(--text);
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+input:focus, 
+select:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(43,119,255,0.2);
+}
+
+/* Help Text */
+.help {
+  margin: 6px 2px 0;
+  font-size: 12px;
+  color: var(--muted);
+  min-height: 14px;
+}
+
+/* Messages */
+.msg {
+  margin-top: 12px;
+  font-size: 13px;
+}
+.msg.error { 
+  color: var(--error); 
+}
+.msg.success { 
+  color: var(--brand-2); 
+}
+
+/* 🔵 LOGIN BUTTON */
+button.primary {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 12px;
+
+  background: #1D4ED8 !important;     /* 🔵 Force solid blue */
+  background-image: none !important;   /* remove gradient */
+  
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .02s ease-in, filter .2s ease;
+}
+
+button.primary:hover { 
+  filter: brightness(1.1); 
+}
+
+button.primary:active { 
+  transform: translateY(1px); 
+}
+
+/* Footer */
+.footnote {
+  margin-top: 18px;
+  color: var(--muted);
+}
+
+/* Lost password link */
+.link { 
+  text-align: center; 
+  margin-top: 10px; 
+}
+
+.muted-link { 
+  color: var(--muted); 
+  text-decoration: none; 
+}
+
+.muted-link:hover { 
+  text-decoration: underline; 
+}
+
+/* Code Styling */
+code { 
+  color: #8cc5ff; 
+}
