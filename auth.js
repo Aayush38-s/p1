@@ -26,7 +26,7 @@ document.getElementById("loginForm")?.addEventListener("submit", function (e) {
 
   const email = document.getElementById("email").value.trim().toLowerCase();
   const pass  = document.getElementById("password").value.trim();
-  const msg   = document.getElementById("msg");
+  const msg   = document.getElementById("formMessage");
 
   const found = DEMO_USERS.find(u =>
     u.email.toLowerCase() === email && u.password === pass
@@ -45,3 +45,4 @@ document.getElementById("loginForm")?.addEventListener("submit", function (e) {
 
   window.location.href = ROLE_ROUTES[found.role];
 });
+
