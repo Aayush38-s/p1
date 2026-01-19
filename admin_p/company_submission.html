@@ -4,9 +4,19 @@
   <meta charset="utf-8" />
   <title>Project Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- FIXED: relative path to CSS -->
   <link rel="stylesheet" href="../dashboard_base.css" />
+  <script>
+  const user = JSON.parse(localStorage.getItem("demoUser") || "null");
+  if (!user || user.role !== "admin_p") {
+    window.location.href = "../index.html";
+  }
+
+  function logout() {
+    localStorage.removeItem("demoUser");
+    window.location.href = "../index.html";
+  }
+</script>
+
 </head>
 <body>
 
@@ -26,7 +36,7 @@
         <a href="my_profile.html" style="display: block; padding: 10px 16px; color: #374151; text-decoration: none; transition: background-color 0.2s;">
           Profile
         </a>
-        <a href="../index.html" style="display: block; padding: 10px 16px; color: #ef4444; text-decoration: none; transition: background-color 0.2s;">
+        <a href="#" onclick="logout(); return false;" style="display: block; padding: 10px 16px; color: #ef4444; text-decoration: none; transition: background-color 0.2s;">
           Logout
         </a>
       </div>
