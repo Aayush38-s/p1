@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../dashboard_base.css" />
   <script>
   const user = JSON.parse(localStorage.getItem("demoUser") || "null");
-  if (!user || user.role !== "admin_p") {
+  if (!user || user.role !== "student") {
     window.location.href = "../index.html";
   }
 
