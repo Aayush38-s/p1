@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Project Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="../dashboard_base.css" />
+</head>
+<body>
+  <header class="top-bar" style="display:flex; align-items:center; justify-content:space-between; padding: 0 20px;">
+    <div>
+      <strong>Project Portal - Student Page</strong>
+    </div>
+
+    <div style="position: relative; display: inline-block;">
+      <button onclick="toggleDropdown()" style="background: none; border: none; cursor: pointer; padding: 8px; display: flex; align-items: center; gap: 5px;">
+        <div style="width: 36px; height: 36px; border-radius: 50%; background: #4f46e5; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">S</div>
+      </button>
+      
+      <div id="profileDropdown" style="display: none; position: absolute; right: 0; background: white; min-width: 120px; border-radius: 6px; box-shadow: 0 4px 6px rgba(0,0,0,0.15); z-index: 1000; margin-top: 5px; padding: 5px 0;">
+        <a href="my_profile.html" style="display: block; padding: 8px 16px; color: #374151; text-decoration: none;">Profile</a>
+        <a href="../index.html" style="display: block; padding: 8px 16px; color: #ef4444; text-decoration: none;">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    document.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('profileDropdown');
+      const button = document.querySelector('button[onclick="toggleDropdown()"]');
+      if (dropdown && button && !button.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+
+    function toggleDropdown() {
+      const dropdown = document.getElementById('profileDropdown');
+      if (dropdown) {
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+      }
+    }
+
+    function toggleEdit() {
+      const fields = document.querySelectorAll('.editable');
+      const btn = document.getElementById('editBtn');
+      const isReadOnly = fields[0].hasAttribute('readonly');
+
+      fields.forEach(field => {
+        isReadOnly ? field.removeAttribute('readonly') : field.setAttribute('readonly', true);
+      });
+
+      btn.textContent = isReadOnly ? 'Save Changes' : 'Edit Profile';
+    }
+  </script>
+
+  <div class="layout">
+    <aside class="sidebar card">
+      <nav>
+        <h3>Student Menu</h3>
+        <a href="dashboard.html" class="link"><span>Home</span></a>
+        <a href="project_list.html" class="link"><span>Project List</span></a>
+        <a href="my_projects.html" class="link"><span>My Projects</span></a>
+        <a href="weekly_submission.html" class="link"><span>Weekly Submission</span></a>
+        <a href="project_progress.html" class="link"><span>Project Progress</span></a>
+        <a href="feedback.html" class="link"><span>Feedback</span></a>
+        <a href="notification.html" class="link"><span>Notifications</span></a>
+      </nav>
+    </aside>
+
+<main>
+  <h1 class="section-title">My Profile</h1>
+  <p>Manage your personal information and account security.</p>
+
+  <!-- PROFILE DETAILS -->
+  <div class="card">
+    <div style="display:flex; align-items:center; justify-content:space-between;">
+      <strong>Profile Information</strong>
+      <button id="editBtn" onclick="toggleEdit()">Edit Profile</button>
+    </div>
+
+    <hr>
+
+    <p>
+      <strong>Full Name</strong><br>
+      <input class="editable" type="text" value="John Doe" readonly>
+    </p>
+
+    <p>
+      <strong>Email Address</strong><br>
+      <input class="editable" type="email" value="johndoe@email.com" readonly>
+    </p>
+
+    <p>
+      <strong>Student ID</strong><br>
+      <input type="text" value="12345678" readonly>
+    </p>
+  </div>
+
+  <!-- ACCOUNT SECURITY -->
+  <div class="card">
+    <strong>Account Security</strong>
+
+    <hr>
+
+    <p>
+      <strong>Current Password</strong><br>
+      <input type="password">
+    </p>
+
+    <p>
+      <strong>New Password</strong><br>
+      <input type="password">
+    </p>
+
+    <p>
+      <strong>Confirm New Password</strong><br>
+      <input type="password">
+    </p>
+
+    <button type="submit">Update Password</button>
+  </div>
+</main>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<script>
+  const user = JSON.parse(localStorage.getItem("demoUser") || "null");
+  if (!user || user.role !== "company") window.location.href = "../index.html";
+</script>
+
+<button onclick="logout()">Logout</button>
+<script>
+  function logout() {
+    localStorage.removeItem("demoUser");
+    window.location.href = "../index.html";
+  }
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Project Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../dashboard_base.css" />
+</head>
+
+<body>
+  <header class="top-bar" style="display:flex; align-items:center; justify-content:space-between; padding: 0 20px;">
+    <div>
+      <strong>Project Portal - Company Page</strong>
+    </div>
+
+    <div style="position: relative; display: inline-block;">
+      <button onclick="toggleDropdown()" style="background: none; border: none; cursor: pointer; padding: 8px; display: flex; align-items: center; gap: 5px;">
+        <div style="width: 36px; height: 36px; border-radius: 50%; background: #4f46e5; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">C</div>
+      </button>
+
+      <div id="profileDropdown" style="display: none; position: absolute; right: 0; background: white; min-width: 120px; border-radius: 6px; box-shadow: 0 4px 6px rgba(0,0,0,0.15); z-index: 1000; margin-top: 5px; padding: 5px 0;">
+        <a href="my_profile.html" style="display: block; padding: 8px 16px; color: #374151; text-decoration: none;">
+          Profile
+        </a>
+        <a href="../index.html" style="display: block; padding: 8px 16px; color: #ef4444; text-decoration: none;">
+          Logout
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    document.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('profileDropdown');
+      const button = document.querySelector('button[onclick="toggleDropdown()"]');
+      if (dropdown && button && !button.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+
+    function toggleDropdown() {
+      const dropdown = document.getElementById('profileDropdown');
+      if (dropdown) {
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+      }
+    }
+  </script>
+
+  <div class="layout">
+    <aside class="sidebar card">
+      <nav>
+        <h3>Company Menu</h3>
+        <a href="#" class="link active"><span>Home</span></a>
+        <a href="Project_Submission.html" class="link"><span>Project Submission</span></a>
+        <a href="My_Project.html" class="link"><span>My Projects</span></a>
+        <a href="Project_Progress.html" class="link"><span>Project Progress</span></a>
+        <a href="Feedback.html" class="link"><span>Feedback</span></a>
+        <a href="Notification.html" class="link"><span>Notifications</span></a>
+      </nav>
+    </aside>
+
+    <main>
+      <h1 class="section-title">Dashboard</h1>
+      <p>Project overview across the portal.</p>
+
+      <!-- STATS CARDS (KEPT) -->
+      <div class="stats-grid">
+        <a href="Project_Submission.html" class="stat-card" style="text-decoration: none; color: inherit;">
+          <div class="stat-label">Project Submission</div>
+        </a>
+        <a href="My_Project.html" class="stat-card" style="text-decoration: none; color: inherit;">
+          <div class="stat-label">My Project</div>
+        </a>
+        <a href="Project_Progress.html" class="stat-card" style="text-decoration: none; color: inherit;">
+          <div class="stat-label">Project Progress</div>
+        </a>
+        <a href="Notification.html" class="stat-card" style="text-decoration: none; color: inherit;">
+          <div class="stat-label">Notification</div>
+        </a>
+      </div>
+
+      <!-- NOTIFICATIONS -->
+      <h1 class="section-title">Notifications</h1>
+      <p>Stay updated with project-related activities and system messages.</p>
+
+      <div class="card">
+        <strong>Project Approved</strong>
+        <p>Your project submission <em>“Smart Inventory System”</em> has been approved by the admin.</p>
+        <small>2 hours ago</small>
+      </div>
+
+      <div class="card">
+        <strong>Feedback Received</strong>
+        <p>A tutor has provided feedback on your project proposal.</p>
+        <small>Yesterday</small>
+      </div>
+
+      <div class="card">
+        <strong>Project Progress Updated</strong>
+        <p>The project status has been updated to <em>“In Progress”</em>.</p>
+        <small>2 days ago</small>
+      </div>
+
+      <div class="card">
+        <strong>Deadline Reminder</strong>
+        <p>The submission deadline for project milestones is approaching.</p>
+        <small>3 days ago</small>
+      </div>
+
+      <div class="card">
+        <strong>System Notification</strong>
+        <p>New features have been added to the Project Portal.</p>
+        <small>1 week ago</small>
+      </div>
+
+    </main>
+  </div>
+</body>
+</html>

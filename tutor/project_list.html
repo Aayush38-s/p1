@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Project List</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../dashboard_base.css" />
+</head>
+<body>
+
+<!-- Top Bar -->
+<header class="top-bar" style="display:flex; align-items:center; justify-content:space-between; padding: 0 20px;">
+  <strong>Project Portal - Tutor Page</strong>
+
+  <div style="position: relative;">
+    <button onclick="toggleDropdown()" style="background:none; border:none; cursor:pointer; padding:8px;">
+      <div style="width:36px; height:36px; border-radius:50%; background:#4f46e5; color:white; display:flex; align-items:center; justify-content:center; font-weight:bold;">T</div>
+    </button>
+
+    <div id="profileDropdown" style="display:none; position:absolute; right:0; background:white; min-width:120px; border-radius:6px; box-shadow:0 4px 6px rgba(0,0,0,0.15); margin-top:5px;">
+      <a href="my_profile.html" style="display:block; padding:8px 16px;">Profile</a>
+      <a href="../loginpage.html" style="display:block; padding:8px 16px; color:#ef4444;">Logout</a>
+    </div>
+  </div>
+</header>
+
+<script>
+function toggleDropdown() {
+  const d = document.getElementById('profileDropdown');
+  d.style.display = d.style.display === 'block' ? 'none' : 'block';
+}
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('button') && !e.target.closest('#profileDropdown')) {
+    document.getElementById('profileDropdown').style.display = 'none';
+  }
+});
+</script>
+
+<div class="layout">
+  <!-- Sidebar -->
+  <aside class="sidebar card">
+    <nav>
+      <h3>Menu</h3>
+      <a href="dashboard.html" class="link">
+        <span>Home</span>
+      </a>
+      <a href="students.html" class="link">
+        <span>Student List</span>
+      </a>
+      <a href="groups.html" class="link">
+        <span>Group List</span>
+      </a>
+      <a href="project_list.html" class="link active">
+        <span>Projects</span>
+      </a>
+      <a href="submissions.html" class="link">
+        <span>Weekly Submissions</span>
+      </a>
+      <a href="feedback.html" class="link">
+        <span>Feedback</span>
+      </a>
+      <a href="notification.html" class="link">
+        <span>Notifications</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main>
+    <h1 class="section-title">Project List</h1>
+
+    <!-- Tabs -->
+    <div class="tab-buttons">
+      <a href="#external" id="btnExternal">External Client</a>
+      <a href="#internal" id="btnInternal">Internal Client</a>
+    </div>
+
+    <!-- External Projects -->
+    <div id="external" class="section">
+      <div class="card">
+        <h2 class="section-title">External Client Projects</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Project Number</th>
+              <th>Company Name</th>
+              <th>Email</th>
+              <th>Project Details</th>
+              <th>Department</th>
+              <th>Group</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>44</td>
+              <td>ABC</td>
+              <td>contact@abc.com</td>
+              <td><a href="#">View File</a></td>
+              <td>BIT, MIS</td>
+              <td>
+                Group 1, Group 3
+                <button style="margin-left:6px; padding:2px 6px; font-size:12px; cursor:pointer;">
+                  Edit
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>45</td>
+              <td>d</td>
+              <td>d@example.com</td>
+              <td><a href="#">View File</a></td>
+              <td>BIT</td>
+              <td>
+                Group 2
+              <button style="margin-left:6px; padding:2px 6px; font-size:12px; cursor:pointer;">
+                  Edit
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>46</td>
+              <td>b</td>
+              <td>b@example.com</td>
+              <td><a href="#">View File</a></td>
+              <td>MIS</td>
+              <td>
+                Group 4, Group 5
+                <button style="margin-left:6px; padding:2px 6px; font-size:12px; cursor:pointer;">
+                  Edit
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Internal Projects -->
+    <div id="internal" class="section">
+      <div class="card">
+        <h2 class="section-title">Internal Client Projects</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Project Number</th>
+              <th>Project Title</th>
+              <th>Project Details</th>
+              <th>Department</th>
+              <th>Tutor</th>
+              <th>Email</th>
+              <th>Group</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>44</td>
+              <td>Project Portal</td>
+              <td><a href="#">View File</a></td>
+              <td>BIT</td>
+              <td>A</td>
+              <td>A@gmail.com</td>
+              <td>
+                Group 2
+              <button style="margin-left:6px; padding:2px 6px; font-size:12px; cursor:pointer;">
+                  Edit
+                </button></td>
+            </tr>
+            <tr>
+              <td>45</td>
+              <td>System</td>
+              <td><a href="#">View File</a></td>
+              <td>BIT</td>
+              <td>J</td>
+              <td>J@college.edu</td>
+              <td>
+                Group 1
+              <button style="margin-left:6px; padding:2px 6px; font-size:12px; cursor:pointer;">
+                  Edit
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>46</td>
+              <td>Portal</td>
+              <td><a href="#">View File</a></td>
+              <td>MIS</td>
+              <td>M</td>
+              <td>M@college.edu</td>
+              <td>
+                Group 3
+              <button style="margin-left:6px; padding:2px 6px; font-size:12px; cursor:pointer;">
+                  Edit
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function updateView() {
+  const external = document.getElementById('external');
+  const internal = document.getElementById('internal');
+  const btnEx = document.getElementById('btnExternal');
+  const btnIn = document.getElementById('btnInternal');
+
+  external.classList.remove('active');
+  internal.classList.remove('active');
+  btnEx.classList.remove('active');
+  btnIn.classList.remove('active');
+
+  if (location.hash === '#internal') {
+    internal.classList.add('active');
+    btnIn.classList.add('active');
+  } else {
+    external.classList.add('active');
+    btnEx.classList.add('active');
+  }
+}
+
+window.addEventListener('load', updateView);
+window.addEventListener('hashchange', updateView);
+</script>
+
+</body>
+</html>

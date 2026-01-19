@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Project Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="../dashboard_base.css" />
+</head>
+<body>
+  <!-- Top Bar -->
+  <header class="top-bar" style="display:flex; align-items:center; justify-content:space-between; padding: 0 20px;">
+    <div>
+      <strong>Project Portal - Tutor Page</strong>
+    </div>
+
+    <!-- User profile dropdown -->
+    <div style="position: relative; display: inline-block;">
+      <button onclick="toggleDropdown()" style="background: none; border: none; cursor: pointer; padding: 8px; display: flex; align-items: center; gap: 5px;">
+        <div style="width: 36px; height: 36px; border-radius: 50%; background: #4f46e5; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">T</div>
+      </button>
+      
+      <div id="profileDropdown" style="display: none; position: absolute; right: 0; background: white; min-width: 120px; border-radius: 6px; box-shadow: 0 4px 6px rgba(0,0,0,0.15); z-index: 1000; margin-top: 5px; padding: 5px 0;">
+        <a href="my_profile.html" style="display: block; padding: 8px 16px; color: #374151; text-decoration: none; transition: background-color 0.2s;">
+          Profile
+        </a>
+        <a href="../loginpage.html" style="display: block; padding: 8px 16px; color: #ef4444; text-decoration: none; transition: background-color 0.2s;">
+          Logout
+        </a>
+      </div>
+    </div>
+  </header>
+  
+  <script>
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('profileDropdown');
+      const button = document.querySelector('button[onclick="toggleDropdown()"]');
+      
+      if (dropdown && button && !button.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+
+    // Toggle dropdown function
+    function toggleDropdown() {
+      const dropdown = document.getElementById('profileDropdown');
+      if (dropdown) {
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+      }
+    }
+  </script>
+
+  <div class="layout">
+    <!-- Sidebar Menu -->
+    <aside class="sidebar card">
+      <nav>
+        <h3>Menu</h3>
+        <a href="dashboard.html" class="link">
+          <span>Home</span>
+        </a>
+        <a href="students.html" class="link">
+          <span>Student List</span>
+        </a>
+        <a href="groups.html" class="link active">
+          <span>Group List</span>
+        </a>
+        <a href="project_list.html" class="link">
+          <span>Projects</span>
+        </a>
+        <a href="submissions.html" class="link">
+          <span>Weekly Submissions</span>
+        </a>
+        <a href="feedback.html" class="link">
+          <span>Feedback</span>
+        </a>
+        <a href="notification.html" class="link">
+          <span>Notifications</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+<main class="content">
+  <div class="card">
+    <h2 class="section-title">Group List</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Group Number</th>
+          <th>Project Title</th>
+          <th>Members</th>
+          <th>Department</th>
+          <th>Assigned Project</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Group 1</td>
+          <td>Campus Event Booking System</td>
+          <td>4 Students</td>
+          <td>BIT</td>
+          <td>External – ABC Tech</td>
+          <td><button class="edit-btn">Edit</button></td>
+        </tr>
+
+        <tr>
+          <td>Group 2</td>
+          <td>Student Project Management</td>
+          <td>5 Students</td>
+          <td>BIT</td>
+          <td>Internal</td>
+          <td><button class="edit-btn">Edit</button></td>
+        </tr>
+
+        <tr>
+          <td>Group 3</td>
+          <td>Online Learning Portal</td>
+          <td>4 Students</td>
+          <td>MIS</td>
+          <td>External – GlobalSoft</td>
+          <td><button class="edit-btn">Edit</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+</div>
+</body>
+</html>
