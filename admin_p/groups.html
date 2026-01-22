@@ -92,49 +92,101 @@
   <div class="card">
     <h2 class="section-title">Group List</h2>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Group Number</th>
-          <th>Project Title</th>
-          <th>Members</th>
-          <th>Department</th>
-          <th>Assigned Project</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Group 1</td>
-          <td>Campus Event Booking System</td>
-          <td>4 Students</td>
-          <td>BIT</td>
-          <td>External – ABC Tech</td>
-          <td><button class="edit-btn">Edit</button></td>
-        </tr>
+    <!-- Tabs (same as project_list.html) -->
+    <div class="tab-buttons">
+      <a href="#external" id="btnExternal">External Client</a>
+      <a href="#internal" id="btnInternal">Internal Client</a>
+    </div>
 
-        <tr>
-          <td>Group 2</td>
-          <td>Student Project Management</td>
-          <td>5 Students</td>
-          <td>BIT</td>
-          <td>Internal</td>
-          <td><button class="edit-btn">Edit</button></td>
-        </tr>
+    <!-- External Groups -->
+    <div id="external" class="section">
+      <table>
+        <thead>
+          <tr>
+            <th>Group Number</th>
+            <th>Project Title</th>
+            <th>Members</th>
+            <th>Department</th>
+            <th>Assigned Project</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Group 1</td>
+            <td>Booking System</td>
+            <td>4 Students</td>
+            <td>BIT</td>
+            <td>External – ABC Tech</td>
+            <td><button class="edit-btn">Edit</button></td>
+          </tr>
 
-        <tr>
-          <td>Group 3</td>
-          <td>Online Learning Portal</td>
-          <td>4 Students</td>
-          <td>MIS</td>
-          <td>External – GlobalSoft</td>
-          <td><button class="edit-btn">Edit</button></td>
-        </tr>
-      </tbody>
-    </table>
+          <tr>
+            <td>Group 3</td>
+            <td>Online Learning Portal</td>
+            <td>4 Students</td>
+            <td>MIS</td>
+            <td>External – GlobalSoft</td>
+            <td><button class="edit-btn">Edit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Internal Groups -->
+    <div id="internal" class="section">
+      <table>
+        <thead>
+          <tr>
+            <th>Group Number</th>
+            <th>Project Title</th>
+            <th>Members</th>
+            <th>Department</th>
+            <th>Assigned Project</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Group 2</td>
+            <td>Student Project Management</td>
+            <td>5 Students</td>
+            <td>BIT</td>
+            <td>Internal</td>
+            <td><button class="edit-btn">Edit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 </main>
   </div>
+
+<script>
+function updateView() {
+  const external = document.getElementById('external');
+  const internal = document.getElementById('internal');
+  const btnEx = document.getElementById('btnExternal');
+  const btnIn = document.getElementById('btnInternal');
+
+  external.classList.remove('active');
+  internal.classList.remove('active');
+  btnEx.classList.remove('active');
+  btnIn.classList.remove('active');
+
+  if (location.hash === '#internal') {
+    internal.classList.add('active');
+    btnIn.classList.add('active');
+  } else {
+    external.classList.add('active');
+    btnEx.classList.add('active');
+  }
+}
+
+window.addEventListener('load', updateView);
+window.addEventListener('hashchange', updateView);
+</script>
 
 </body>
 </html>
