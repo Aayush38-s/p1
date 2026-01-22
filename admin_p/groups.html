@@ -67,7 +67,7 @@
     <aside class="sidebar card">
       <nav>
         <h3>Menu</h3>
-        <a href="dashboard.html" class="link active">
+        <a href="dashboard.html" class="link">
           <span>Home</span>
         </a>
         <a href="project_list.html" class="link">
@@ -76,7 +76,7 @@
         <a href="company_submission.html" class="link">
           <span>Company Submissions List</span>
         </a>
-        <a href="dashboard.html" class="link">
+        <a href="groups.html" class="link active">
           <span>Groups List</span>
         </a>
         <a href="dashboard.html" class="link">
@@ -97,79 +97,54 @@
       </nav>
     </aside>
 
-    <main>
-      <h1 class="section-title">Dashboard</h1>
-      <p>Project overview across the portal.</p>
+ 
+    <!-- MAIN CONTENT -->
+<main class="content">
+  <div class="card">
+    <h2 class="section-title">Group List</h2>
 
-      <div class="stats-grid">
-        <a href="project_list.html" class="stat-card" style="text-decoration:none; color:inherit;">
-          <div class="stat-label">Projects</div>
-        </a>
+    <table>
+      <thead>
+        <tr>
+          <th>Group Number</th>
+          <th>Project Title</th>
+          <th>Members</th>
+          <th>Department</th>
+          <th>Assigned Project</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Group 1</td>
+          <td>Campus Event Booking System</td>
+          <td>4 Students</td>
+          <td>BIT</td>
+          <td>External – ABC Tech</td>
+          <td><button class="edit-btn">Edit</button></td>
+        </tr>
 
-        <a href="dashboard.html" class="stat-card" style="text-decoration:none; color:inherit;">
-          <div class="stat-label">Students</div>
-        </a>
+        <tr>
+          <td>Group 2</td>
+          <td>Student Project Management</td>
+          <td>5 Students</td>
+          <td>BIT</td>
+          <td>Internal</td>
+          <td><button class="edit-btn">Edit</button></td>
+        </tr>
 
-        <a href="dashboard.html" class="stat-card" style="text-decoration:none; color:inherit;">
-          <div class="stat-label">Groups</div>
-        </a>
-
-        <a href="dashboard.html" class="stat-card" style="text-decoration:none; color:inherit;">
-          <div class="stat-label">Tutors</div>
-        </a>
-      </div>
-
-      <div class="card" style="margin-top: 20px;">
-        <h2 class="section-title">Projects</h2>
-        <p style="margin-top:0; font-size:13px; color:#6b7280;">
-          List of all projects. Admin and Tutors can edit project details.
-        </p>
-
-        <table class="projects-table">
-          <thead>
-            <tr>
-              <th>Project Title</th>
-              <th>Company</th>
-              <th>Status</th>
-              <th>Group</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>E-commerce Platform</td>
-              <td>Tech Corp</td>
-              <td><span class="tag-status in_progress">In Progress</span></td>
-              <td>Group A</td>
-              <td>
-                <a href="dashboard.html" class="btn-link">View</a>
-                <a href="dashboard.html" class="btn-link">Edit</a>
-              </td>
-            </tr>
-            <tr>
-              <td>Mobile App Development</td>
-              <td>Mobile Solutions</td>
-              <td><span class="tag-status pending">Pending</span></td>
-              <td>Group B</td>
-              <td>
-                <a href="dashboard.html" class="btn-link">View</a>
-                <a href="dashboard.html" class="btn-link">Edit</a>
-              </td>
-            </tr>
-            <tr>
-              <td>Data Analysis Tool</td>
-              <td>Data Insights</td>
-              <td><span class="tag-status completed">Completed</span></td>
-              <td>Group C</td>
-              <td>
-                <a href="dashboard.html" class="btn-link">View</a>
-                <a href="dashboard.html" class="btn-link">Edit</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </main>
+        <tr>
+          <td>Group 3</td>
+          <td>Online Learning Portal</td>
+          <td>4 Students</td>
+          <td>MIS</td>
+          <td>External – GlobalSoft</td>
+          <td><button class="edit-btn">Edit</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
   </div>
 
 </body>
