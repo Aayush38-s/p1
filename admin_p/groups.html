@@ -7,16 +7,24 @@
   <link rel="stylesheet" href="../dashboard_base.css" />
 
   <script>
-  const user = JSON.parse(localStorage.getItem("demoUser") || "null");
-  if (!user || user.role !== "admin_p") {
-    window.location.href = "../index.html";
-  }
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('profileDropdown');
+      const button = document.querySelector('button[onclick="toggleDropdown()"]');
+      
+      if (dropdown && button && !button.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
 
-  function logout() {
-    localStorage.removeItem("demoUser");
-    window.location.href = "../index.html";
-  }
-</script>
+    // Toggle dropdown function
+    function toggleDropdown() {
+      const dropdown = document.getElementById('profileDropdown');
+      if (dropdown) {
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+      }
+    }
+  </script>
 
 </head>
 <body>
