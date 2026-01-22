@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Project Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../dashboard_base.css" />
+
+  <script>
+  const user = JSON.parse(localStorage.getItem("demoUser") || "null");
+  if (!user || user.role !== "admin_p") {
+    window.location.href = "../index.html";
+  }
+
+  function logout() {
+    localStorage.removeItem("demoUser");
+    window.location.href = "../index.html";
+  }
+</script>
+
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="top-bar" style="display:flex; align-items:center; justify-content:space-between; padding: 0 20px;">
+    <div>
+      <strong>Project Portal - Admin Page</strong>
+    </div>
+
+    <!-- User profile dropdown -->
+    <div style="position: relative; display: inline-block;">
+      <button onclick="toggleDropdown()" style="background: none; border: none; cursor: pointer; padding: 8px; display: flex; align-items: center; gap: 5px;">
+        <div style="width: 36px; height: 36px; border-radius: 50%; background: #4f46e5; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">A</div>
+      </button>
+      
+      <div id="profileDropdown" style="display: none; position: absolute; right: 0; background: white; min-width: 160px; border-radius: 6px; box-shadow: 0 4px 6px rgba(0,0,0,0.15); z-index: 1000; margin-top: 5px; padding: 5px 0;">
+        <a href="dashboard.html" style="display: block; padding: 10px 16px; color: #374151; text-decoration: none; transition: background-color 0.2s;">
+          Profile
+        <a href="#" onclick="logout(); return false;" style="display: block; padding: 10px 16px; color: #ef4444; text-decoration: none; transition: background-color 0.2s;">
+          Logout
+        </a>
+      </div>
+    </div>
+  </header>
+  
+  <script>
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('profileDropdown');
+      const button = document.querySelector('button[onclick="toggleDropdown()"]');
+      
+      if (dropdown && button && !button.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+
+    // Toggle dropdown function
+    function toggleDropdown() {
+      const dropdown = document.getElementById('profileDropdown');
+      if (dropdown) {
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+      }
+    }
+  </script>
+
+  <div class="layout">
+    <aside class="sidebar card">
+      <nav>
+        <h3>Menu</h3>
+        <a href="dashboard.html" class="link active">
+          <span>Home</span>
+        </a>
+        <a href="project_list.html" class="link">
+          <span>Projects</span>
+        </a>
+        <a href="company_submission.html" class="link">
+          <span>Company Submissions List</span>
+        </a>
+        <a href="dashboard.html" class="link">
+          <span>Groups List</span>
+        </a>
+        <a href="dashboard.html" class="link">
+          <span>Students List</span>
+        </a>
+        <a href="dashboard.html" class="link">
+          <span>Student Submissions List</span>
+        </a>
+        <a href="dashboard.html" class="link">
+          <span>Project Progression</span>
+        </a>
+        <a href="dashboard.html" class="link">
+          <span>Feedback</span>
+        </a>
+        <a href="dashboard.html" class="link">
+          <span>User Management</span>
+        </a>
+      </nav>
+    </aside>
+
+    <main>
+      <h1 class="section-title">Dashboard</h1>
+      <p>Project overview across the portal.</p>
+
+      <div class="stats-grid">
+        <a href="project_list.html" class="stat-card" style="text-decoration:none; color:inherit;">
+          <div class="stat-label">Projects</div>
+        </a>
+
+        <a href="dashboard.html" class="stat-card" style="text-decoration:none; color:inherit;">
+          <div class="stat-label">Students</div>
+        </a>
+
+        <a href="dashboard.html" class="stat-card" style="text-decoration:none; color:inherit;">
+          <div class="stat-label">Groups</div>
+        </a>
+
+        <a href="dashboard.html" class="stat-card" style="text-decoration:none; color:inherit;">
+          <div class="stat-label">Tutors</div>
+        </a>
+      </div>
+
+      <div class="card" style="margin-top: 20px;">
+        <h2 class="section-title">Projects</h2>
+        <p style="margin-top:0; font-size:13px; color:#6b7280;">
+          List of all projects. Admin and Tutors can edit project details.
+        </p>
+
+        <table class="projects-table">
+          <thead>
+            <tr>
+              <th>Project Title</th>
+              <th>Company</th>
+              <th>Status</th>
+              <th>Group</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>E-commerce Platform</td>
+              <td>Tech Corp</td>
+              <td><span class="tag-status in_progress">In Progress</span></td>
+              <td>Group A</td>
+              <td>
+                <a href="dashboard.html" class="btn-link">View</a>
+                <a href="dashboard.html" class="btn-link">Edit</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Mobile App Development</td>
+              <td>Mobile Solutions</td>
+              <td><span class="tag-status pending">Pending</span></td>
+              <td>Group B</td>
+              <td>
+                <a href="dashboard.html" class="btn-link">View</a>
+                <a href="dashboard.html" class="btn-link">Edit</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Data Analysis Tool</td>
+              <td>Data Insights</td>
+              <td><span class="tag-status completed">Completed</span></td>
+              <td>Group C</td>
+              <td>
+                <a href="dashboard.html" class="btn-link">View</a>
+                <a href="dashboard.html" class="btn-link">Edit</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>
