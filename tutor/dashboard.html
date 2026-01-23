@@ -6,15 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <link rel="stylesheet" href="../dashboard_base.css" />
- <script>
-  // DEMO MODE – role check disabled for presentation
-  /*
-  const user = JSON.parse(localStorage.getItem("demoUser") || "null");
-  if (!user || user.role !== "admin") {
-    window.location.href = "../index.html";
+<button onclick="loginTutor()">Login as Tutor</button>
+
+<script>
+  function loginTutor() {
+    localStorage.setItem("demoUser", JSON.stringify({
+      name: "Tutor User",
+      role: "tutor"
+    }));
+    window.location.href = "tutor/dashboard.html";
   }
-  */
 </script>
+
 
 
 </head>
