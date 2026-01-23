@@ -5,15 +5,18 @@
   <title>Project Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="../dashboard_base.css" />
- <script>
-  // DEMO MODE – role check disabled for presentation
-  /*
-  const user = JSON.parse(localStorage.getItem("demoUser") || "null");
-  if (!user || user.role !== "admin") {
-    window.location.href = "../index.html";
+<button onclick="loginCompany()">Login as Company</button>
+
+<script>
+  function loginCompany() {
+    localStorage.setItem("demoUser", JSON.stringify({
+      name: "Company User",
+      role: "company"
+    }));
+    window.location.href = "company/dashboard.html";
   }
-  */
 </script>
+
 
 
 </head>
